@@ -1,19 +1,25 @@
 package com.example.Bookstore.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.Bookstore.domain.BookRepository;
 
 
 @Controller
 public class BookController {
 	
+	@Autowired
+	private BookRepository repository;
 	
+	@RequestMapping("/booklist")
 	
-	@RequestMapping("/index")
-	
-	public String books(Model model) {
+	public String bookList(Model model) {
+		model.addAttribute("books", repository.findAll());
 		
-		return null;
+		return "booklist";
+	
 		}
 	}
