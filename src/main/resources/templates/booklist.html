@@ -7,21 +7,27 @@
 <body>
 	<h1>Booklist</h1>
 	<table class="tabletable-striped">
+	<tbody>
 		<tr>
 			<th>Title</th>
 			<th>Author</th>
 			<th>Year</th>
 			<th>ISBN</th>
 			<th>Price</th>
+				
 		</tr>
 		<tr th:each="book : ${books}">
+	
 			<td th:text="${book.title}"></td>
 			<td th:text="${book.author}"></td>
 			<td th:text="${book.year}"></td>
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.price}"></td>
+				<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
 		</tr>
+		</tbody>
 	</table>
+
 	<a href="/add" class="btn btn  -primary">Add Book</a>
 </body>
 </html>
