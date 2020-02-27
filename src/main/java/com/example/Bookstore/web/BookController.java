@@ -1,5 +1,7 @@
 package com.example.Bookstore.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +52,9 @@ public class BookController {
 	}
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
-	model.addAttribute("book", repository.findById(bookId));
+	Optional<Book> book = repository.findById(bookId);
+	model.addAttribute("categories", crepository.findAll());
+		model.addAttribute("book", repository.findById(bookId));
 	
 		
 		return "editbook";

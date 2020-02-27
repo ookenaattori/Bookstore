@@ -25,7 +25,7 @@ public class BookstoreApplication {
 			crepository.save(new Category("Novel"));
 			
 			Book book1 = new Book("Kirjannimi", "Kirjailija", 2019, 1234, 10, crepository.findByName("Horror").get(0));
-			Book book2 = new Book("Kirjannimi", "Kirjailija", 2018, 1235, 11, crepository.findByName("Horror").get(0));
+			Book book2 = new Book("Kirjannimi", "Kirjailija", 2018, 1235, 11, crepository.findByName("Novel").get(0));
 			Book book3 = new Book("Kirjannimi", "Kirjailija", 2017, 1236, 12, crepository.findByName("Horror").get(0));
 			
 			repository.save(book1);
