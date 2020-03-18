@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +35,13 @@ public class BookController {
 		return "booklist";
 	
 		}
+	
+	// Login
+    @RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }	
+    
 	// RESTful service to get all books
     @RequestMapping(value="/books", method = RequestMethod.GET)
     public @ResponseBody List<Book> bookListRest() {	
@@ -63,6 +71,7 @@ public class BookController {
 	}
 	// Delete book
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ADMIN')")
 	public String deleteBook(@PathVariable("id") Long bookId, Model model) {
 		repository.deleteById(bookId);
 		
