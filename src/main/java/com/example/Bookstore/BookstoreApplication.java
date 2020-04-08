@@ -9,8 +9,8 @@ import com.example.Bookstore.domain.Book;
 import com.example.Bookstore.domain.BookRepository;
 import com.example.Bookstore.domain.Category;
 import com.example.Bookstore.domain.CategoryRepository;
-import com.example.Bookstore.domain.User;
-import com.example.Bookstore.domain.UserRepository;
+import com.example.Bookstore.domain.Kayttaja;
+import com.example.Bookstore.domain.KayttajaRepository;
 
 
 
@@ -24,7 +24,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository){
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, KayttajaRepository urepository){
 		return(args) -> {
 			
 			crepository.save(new Category("Horror"));
@@ -39,9 +39,9 @@ public class BookstoreApplication {
 			repository.save(book3);
 			
 			// Create users: admin/admin user/user
-						User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-						User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
-						User user3 = new User("Ooke", "$2y$10$3N9WOt3Z0s1/dx50sHhE4O16Q9O41Xgr6E.2sT55NIWrMJg0qsWGi", "ADMIN");
+						Kayttaja user1 = new Kayttaja("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+						Kayttaja user2 = new Kayttaja("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+						Kayttaja user3 = new Kayttaja("Ooke", "$2y$10$3N9WOt3Z0s1/dx50sHhE4O16Q9O41Xgr6E.2sT55NIWrMJg0qsWGi", "ADMIN");
 						urepository.save(user1);
 						urepository.save(user2);
 						urepository.save(user3);
