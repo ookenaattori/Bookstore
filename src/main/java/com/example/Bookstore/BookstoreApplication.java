@@ -41,10 +41,10 @@ public class BookstoreApplication {
 			// Create users: admin/admin user/user
 					
 						Kayttaja kayttaja2 = new Kayttaja("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
-						Kayttaja kayttaja3 = new Kayttaja("Ooke", "$2y$10$3N9WOt3Z0s1/dx50sHhE4O16Q9O41Xgr6E.2sT55NIWrMJg0qsWGi", "ADMIN");
+					
 						
 						urepository.save(kayttaja2);
-						urepository.save(kayttaja3);
+					
 			
 			};
 	}
