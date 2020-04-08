@@ -27,8 +27,6 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, KayttajaRepository urepository){
 		return(args) -> {
 			
-			crepository.save(new Category("Horror"));
-			crepository.save(new Category("Novel"));
 			
 			Book book1 = new Book("Kirjannimi", "Kirjailija", 2019, 1234, 10, crepository.findByName("Horror").get(0));
 			Book book2 = new Book("Kirjannimi", "Kirjailija", 2018, 1235, 11, crepository.findByName("Novel").get(0));
